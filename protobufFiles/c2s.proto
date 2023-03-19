@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+//Message session for client-server
+message ServerData {
+	enum Opcode {
+		OP_PSH = 0;
+		OP_SYN = 1;
+		OP_ACK = 2;
+		OP_FIN = 3;
+	}
+	
+	Opcode opcode = 1; //Intnt
+	bytes  data   = 2; //Binary blob of the message content
+}

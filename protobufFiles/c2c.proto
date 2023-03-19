@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+//Message passing btw Peers
+message NFCData {
+	enum DataSource {
+		READER = 0;
+		CARD   = 1;
+	}
+
+	enum DataType {
+		INITIAL	      = 0;
+		CONTINUATIONi = 1; 
+	}
+
+	DataSource data_source = 1; //Source:NFC-Card/Reader
+	DataType   data_type   = 2; //Initial-data or continuation
+	bytes 	   data	       = 3; //Sended bytes
+	int64	   timestamp   = 4; //Unix timestamp in millis
+}
